@@ -42,5 +42,6 @@ $match = $router->match();
 if ($match && is_callable($match['target'])) {
     call_user_func_array($match['target'], $match['params']);
 } else {
-    header("HTTP/1.0 404 Not Found"); // custom twig to add !
+    header("HTTP/1.0 404 Not Found");
+    echo $twig->render('page404.twig'); 
 }

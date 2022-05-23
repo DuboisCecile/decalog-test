@@ -1,0 +1,14 @@
+{% extends 'layout.twig' %}
+
+{% block title %}
+	Page non trouvée
+{% endblock %}
+
+{% block content %}
+    <div class="text-center mt-5">
+        <h1>Oups ! Il semble que vous vous soyez égarés...</h1>
+        <h2>Voulez-vous retourner à <a href={{folder ~ "/"}}>l'accueil</a> ?</h2>
+        <img class="mt-5 w-25" src={{folder ~ "/src/assets/images/oops-404_compressed.png"}} alt="Robot cassé illustrant une erreur 404, page non trouvée"></img>
+     </div>
+
+{% endblock %}
