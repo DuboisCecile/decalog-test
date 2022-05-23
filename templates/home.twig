@@ -8,12 +8,25 @@
 {% block content %}
 	<div class="m-4">
 		<h1>Liste des articles</h1>
-
 		<div class="d-flex flex-wrap justify-content-center align-items-stretch">
 			{% for doc in docs %}
-
 				<div class="m-4 card text-white bg-info" style="max-width: 20rem;">
-					{{doc.label}}
+					<div style="height: 100px;" class="card-header">
+						<div>
+							{{'Rubrique' ~ 
+							 (doc.sm_rubrique|length > 1 ? 's' : '') ~
+							' : ' ~ doc.sm_rubrique|join(', ')}}
+						</div>
+						<div>
+							{{"Thème" ~ 
+							 (doc.sm_theme|length > 1 ? 's' : '') ~
+							' : ' ~ doc.sm_theme|join(', ')}}
+						</div>
+					</div>
+					<div class="card-body">
+						<div class="card-title h4">{{doc.label}}</div>
+						<p class="card-text">{{doc.teaser}}</p>
+					</div>
 				</div>
 			{% endfor %}
 		</div>
