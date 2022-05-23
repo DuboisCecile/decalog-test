@@ -22,7 +22,7 @@ $router = new AltoRouter();
 $router->setBasePath($folder);
 
 $router->map('GET', '/', function() use($twig, $docs) {
-    echo $twig->render('home.twig', ['docs' => $docs]); 
+    echo $twig->render('home.twig', ['docs' => array_slice($docs, 0, 10), 'pageQuantity' => count($docs) / 10, 'page' => 1]); 
 }); 
 
 

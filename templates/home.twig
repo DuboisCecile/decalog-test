@@ -8,6 +8,7 @@
 {% block content %}
 	<div class="m-4">
 		<h1>Liste des articles</h1>
+
 		<div class="d-flex flex-wrap justify-content-center align-items-stretch">
 			{% for doc in docs %}
 				<div class="m-4 card text-white bg-info" style="max-width: 20rem;">
@@ -28,10 +29,14 @@
 						<div class="text-center my-2">
 							<img src={{doc.sm_image_url[0]}} alt={{"Illustration de l'article : " ~ doc.label}}/>
 						</div>
-						<p class="card-text">{{doc.teaser}}</p>
+						<p style="display: -webkit-box; -webkit-line-clamp: 10; -webkit-box-orient: vertical; overflow: hidden;" class="card-text">{{doc.teaser}}</p>
 					</div>
 				</div>
 			{% endfor %}
 		</div>
+
+		{% set minPage = page - 2 >= 1 ? page - 2 : 1 %}
+		{% set maxPage = page + 2 <= pageQuantity ? page + 2 : pageQuantity %}
+
 	</div>
 {% endblock content %}
