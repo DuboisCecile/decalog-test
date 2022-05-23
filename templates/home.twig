@@ -1,7 +1,21 @@
 {% extends 'layout.twig' %}
 
+{% block title %}
+	Home
+{% endblock %}
+
+
 {% block content %}
-	{% for doc in docs %}
-		{{doc.label}}
-	{% endfor %}
+	<div class="m-4">
+		<h1>Liste des articles</h1>
+
+		<div class="d-flex flex-wrap justify-content-center align-items-stretch">
+			{% for doc in docs %}
+
+				<div class="m-4 card text-white bg-info" style="max-width: 20rem;">
+					{{doc.label}}
+				</div>
+			{% endfor %}
+		</div>
+	</div>
 {% endblock content %}
