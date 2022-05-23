@@ -11,4 +11,10 @@ $data = file_get_contents('https://www.maisonapart.com/article.json');
 $dataDecoded = json_decode($data);
 $docs = $dataDecoded->response->docs;
 
-var_dump($docs);
+// twig templates calls
+$loader = new \Twig\Loader\FilesystemLoader('./templates');
+$twig = new \Twig\Environment($loader, [
+    'cache' => false,
+]);
+
+var_dump($twig);
