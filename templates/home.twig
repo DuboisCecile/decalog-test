@@ -42,6 +42,11 @@
 			<li class="page-item">
 				<a class="page-link" href={{folder ~ "/home/1"}}>&laquo;</a>
 			</li>
+			{% for i in minPage..maxPage %}
+				<li class="page-item">
+					<a class="page-link" href={{folder ~ "/home/" ~ i}}>{{i}}</a>
+				</li>
+			{% endfor %}
 			<li class="page-item">
 				<a class="page-link" href={{folder ~ "/home/" ~ pageQuantity}}>&raquo;</a>
 			</li>
