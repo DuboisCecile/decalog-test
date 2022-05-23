@@ -17,4 +17,21 @@ $twig = new \Twig\Environment($loader, [
     'cache' => false,
 ]);
 
-var_dump($twig);
+// routing
+$router = new AltoRouter();
+$router->setBasePath($folder);
+
+$router->map('GET', '/', function() use($twig, $docs) {
+    echo $twig->render('home.twig', ['docs' => $docs]); 
+}); 
+
+
+$match = $router->match();
+
+
+// page not found
+if ($match && is_callable($match['target'])) {
+    call_user_func_array($match['target'], $match['params']);
+} else {
+    header("HTTP/1.0 404 Not Found"); // custom twig to add !
+}
