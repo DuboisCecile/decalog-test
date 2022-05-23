@@ -38,5 +38,15 @@
 		{% set minPage = page - 2 >= 1 ? page - 2 : 1 %}
 		{% set maxPage = page + 2 <= pageQuantity ? page + 2 : pageQuantity %}
 
+		<ul class="pagination pagination-lg">
+			<li class="page-item">
+				<a class="page-link" href={{folder ~ "/home/1"}}>&laquo;</a>
+			</li>
+			<li class="page-item">
+				<a class="page-link" href={{folder ~ "/home/" ~ pageQuantity}}>&raquo;</a>
+			</li>
+
+		</ul>
+
 	</div>
 {% endblock content %}

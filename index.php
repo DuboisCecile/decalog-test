@@ -16,6 +16,7 @@ $loader = new \Twig\Loader\FilesystemLoader('./templates');
 $twig = new \Twig\Environment($loader, [
     'cache' => false,
 ]);
+$twig->addGlobal("folder", $folder);
 
 // routing
 $router = new AltoRouter();
@@ -24,7 +25,12 @@ $router->setBasePath($folder);
 $router->map('GET', '/', function() use($twig, $docs) {
     echo $twig->render('home.twig', ['docs' => array_slice($docs, 0, 10), 'pageQuantity' => count($docs) / 10, 'page' => 1]); 
 }); 
-
+$router->map('GET', '/home', function() use($twig, $docs) {
+    echo $twig->render('home.twig', ['docs' => array_slice($docs, 0, 10), 'pageQuantity' => count($docs) / 10, 'page' => 1]); 
+    });
+$router->map('GET', '/home/[i:page]', function($page) use($twig, $docs) {
+    echo $twig->render('home.twig', ['docs' => array_slice($docs, ($page -1) * 10, 10), 'pageQuantity' => count($docs) / 10, 'page' => $page]); 
+}); 
 
 $match = $router->match();
 
