@@ -9,3 +9,23 @@
 		<a class="navbar-brand text-light" href={{folder ~ "/home/1"}}>Retour à la liste</a>
 	</nav>
 {% endblock header %}
+
+{% block content %}
+	<div class="m-4">
+		<h1>{{doc.label}}</h1>
+		<div class="h2">
+			{{'Rubrique' ~ (doc.sm_rubrique|length > 1 ? 's' : '') ~ ' : ' ~ doc.sm_rubrique|join(', ')}}
+		</div>
+		<div class="h2">
+			{{"Thème" ~ (doc.sm_theme|length > 1 ? 's' : '') ~ ' : ' ~ doc.sm_theme|join(', ')}}
+		</div>
+		<a class="text-decoration-none" href={{doc.path}} target="_blank" data-bs-toggle="tooltip" data-bs-placement="top" title="Aller sur le site d'origine">
+			<button type="button" class="btn btn-lg btn-primary">Aller voir l'article</button>
+		</a>
+		<div class="text-center my-4">
+			<img src={{doc.sm_image_url[0]}} alt={{doc.label}}/>
+		</div>
+		<p class="h4">{{doc.teaser}}</p>
+		<p class="h5">{{doc.ts_texte}}</p>
+	</div>
+{% endblock %}

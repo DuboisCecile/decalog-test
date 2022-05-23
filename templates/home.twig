@@ -15,14 +15,10 @@
 					<div class="m-4 card text-white bg-info" style="max-width: 20rem;">
 						<div style="height: 100px;" class="card-header">
 							<div>
-								{{'Rubrique' ~ 
-							 (doc.sm_rubrique|length > 1 ? 's' : '') ~
-							' : ' ~ doc.sm_rubrique|join(', ')}}
+								{{'Rubrique' ~ (doc.sm_rubrique|length > 1 ? 's' : '') ~ ' : ' ~ doc.sm_rubrique|join(', ')}}
 							</div>
 							<div>
-								{{"Thème" ~ 
-							 (doc.sm_theme|length > 1 ? 's' : '') ~
-							' : ' ~ doc.sm_theme|join(', ')}}
+								{{"Thème" ~ (doc.sm_theme|length > 1 ? 's' : '') ~ ' : ' ~ doc.sm_theme|join(', ')}}
 							</div>
 						</div>
 						<div class="card-body">
