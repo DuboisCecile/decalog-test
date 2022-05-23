@@ -11,27 +11,29 @@
 
 		<div class="d-flex flex-wrap justify-content-center align-items-stretch">
 			{% for doc in docs %}
-				<div class="m-4 card text-white bg-info" style="max-width: 20rem;">
-					<div style="height: 100px;" class="card-header">
-						<div>
-							{{'Rubrique' ~ 
+				<a class="text-decoration-none" href={{folder ~ "/detail/" ~ doc.entity_id}}>
+					<div class="m-4 card text-white bg-info" style="max-width: 20rem;">
+						<div style="height: 100px;" class="card-header">
+							<div>
+								{{'Rubrique' ~ 
 							 (doc.sm_rubrique|length > 1 ? 's' : '') ~
 							' : ' ~ doc.sm_rubrique|join(', ')}}
-						</div>
-						<div>
-							{{"Thème" ~ 
+							</div>
+							<div>
+								{{"Thème" ~ 
 							 (doc.sm_theme|length > 1 ? 's' : '') ~
 							' : ' ~ doc.sm_theme|join(', ')}}
+							</div>
+						</div>
+						<div class="card-body">
+							<div class="card-title h4">{{doc.label}}</div>
+							<div class="text-center my-2">
+								<img src={{doc.sm_image_url[0]}} alt={{"Illustration de l'article : " ~ doc.label}}/>
+							</div>
+							<p style="display: -webkit-box; -webkit-line-clamp: 10; -webkit-box-orient: vertical; overflow: hidden;" class="card-text">{{doc.teaser}}</p>
 						</div>
 					</div>
-					<div class="card-body">
-						<div class="card-title h4">{{doc.label}}</div>
-						<div class="text-center my-2">
-							<img src={{doc.sm_image_url[0]}} alt={{"Illustration de l'article : " ~ doc.label}}/>
-						</div>
-						<p style="display: -webkit-box; -webkit-line-clamp: 10; -webkit-box-orient: vertical; overflow: hidden;" class="card-text">{{doc.teaser}}</p>
-					</div>
-				</div>
+				</a>
 			{% endfor %}
 		</div>
 
